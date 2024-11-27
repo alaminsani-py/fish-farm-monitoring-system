@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00bcd4;
+    padding: 15px;
+    color: white;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.user-icon {
+    cursor: pointer;
+}
+
+.user-icon img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    background: linear-gradient(to bottom, #00bcd4, #008c9e);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-icon img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 15px;
+}
+
+.card-info h3 {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+.card-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.learn-more {
+    background-color: #000;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.learn-more:hover {
+    background-color: #444;
+}
+
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.chat-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Add Media Queries for Mobile View */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Display cards in a single column */
+        padding: 15px; /* Reduce padding for better spacing */
+    }
+
+    .card {
+        padding: 15px; /* Reduce padding for smaller screen */
+    }
+
+    .card-icon img {
+        width: 70px; /* Smaller icon for mobile view */
+        height: 70px;
+    }
+
+    .card-info h3 {
+        font-size: 20px; /* Adjust title font size */
+    }
+
+    .card-info p {
+        font-size: 16px; /* Adjust paragraph font size */
+    }
+
+    .learn-more {
+        padding: 10px 15px; /* Reduce button size */
+        margin-top: 10px;
+    }
+
+    .navbar {
+        padding: 10px; /* Reduce navbar padding for mobile */
+    }
+
+    .menu-icon {
+        font-size: 20px; /* Adjust menu icon size for mobile */
+    }
+
+    .user-icon img {
+        width: 35px; /* Smaller profile image for mobile */
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 10px; /* Reduce padding further for very small screens */
+    }
+
+    .card-info h3 {
+        font-size: 18px; /* Further reduce title font size */
+    }
+
+    .card-info p {
+        font-size: 14px; /* Reduce paragraph font size */
+    }
+
+    .learn-more {
+        padding: 8px 12px; /* Smaller button size for small screens */
+    }
+
+    .navbar {
+        padding: 8px; /* Further reduce navbar padding */
+    }
+}

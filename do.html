@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dissolved Oxygen - Fishfarm Monitoring System</title>
+    <link rel="stylesheet" href="do-style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-icon">
+            <span>&#9776;</span>
+        </div>
+        <div class="user-icon" onclick="window.location.href='user-profile.html'">
+            <img src="user-icon.jpg" alt="User Icon">
+        </div>
+    </div>
+    <div class="content-container">
+        <h1>Dissolved Oxygen</h1>
+        <div class="do-section">
+            <div class="do-info">
+                <p>Dissolved Oxygen:- 5 mg/L</p>
+                <p>Ideal D. Oxygen:- 5 mg/L</p>
+                <p>Average DO (Today):- 4.9 mg/L</p>
+                <p>Average DO (This week):- 4.95mg/L</p>
+                <p>Average DO (This Month):- 5.1 mg/L</p>
+                <p>Average DO (Last 6 Month):- 5.01 mg/L</p>
+                <p>Minimum DO (This Week):- 4.1 mg/L</p>
+                <p>Minimum DO (This month):- 4.1 mg/L</p>
+                <p>Maximum DO (This Week):- 6.1 mg/L</p>
+                <p>Maximum DO (This Week):- 6.1 mg/L</p>
+                <p>Last Updated:- 5:00 PM</p>
+            </div>
+            <div class="do-graph">
+                <canvas id="doChart"></canvas>
+                <div class="graph-buttons">
+                    <button onclick="showGraph('today')">Today</button>
+                    <button onclick="showGraph('week')">Week</button>
+                    <button onclick="showGraph('month')">Month</button>
+                    <button onclick="showGraph('sixMonth')">6 Month</button>
+                </div>
+            </div>
+        </div>
+        <div class="do-buttons">
+            <button class="download-data">Download Data &#x2193;</button>
+            <button class="test-now">Test Now</button>
+        </div>
+    </div>
+    <div class="chat-icon" onclick="window.location.href='chat.html'">
+        <img src="chatbot-icon.png" alt="Chatbot Icon">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // JavaScript to render the graph using Chart.js
+        const ctx = document.getElementById('doChart').getContext('2d');
+        const doChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+                datasets: [{
+                    label: 'Dissolved Oxygen (mg/L)',
+                    data: [5.0, 4.8, 5.1, 4.9, 5.2, 4.7, 5.0],
+                    borderColor: 'red',
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function showGraph(period) {
+            // Placeholder function to handle changing graph data for different periods
+            alert('Showing graph for ' + period);
+        }
+    </script>
+</body>
+</html>

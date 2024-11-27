@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature - Fishfarm Monitoring System</title>
+    <link rel="stylesheet" href="tem-styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-icon">
+            <span>&#9776;</span>
+        </div>
+        <div class="user-icon" onclick="window.location.href='user-profile.html'">
+            <img src="user-icon.jpg" alt="User Icon">
+        </div>
+    </div>
+    <div class="content-container">
+        <h1>Temperature Level</h1>
+        <div class="temperature-section">
+            <div class="temperature-info">
+                <p>Current Temperature Level:- 25°C</p>
+                <p>Ideal Temperature Level:- 26°C</p>
+                <p>Average Temperature (Today):- 24.5°C</p>
+                <p>Average Temperature (This Week):- 25°C</p>
+                <p>Average Temperature (This Month):- 25.5°C</p>
+                <p>Average Temperature (Last 6 Months):- 26°C</p>
+                <p>Minimum Temperature (This Week):- 23°C</p>
+                <p>Minimum Temperature (This Month):- 22.5°C</p>
+                <p>Maximum Temperature (This Week):- 27°C</p>
+                <p>Maximum Temperature (This Month):- 28°C</p>
+                <p>Last Updated:- 5:00 PM</p>
+            </div>
+            <div class="temperature-graph">
+                <canvas id="temperatureChart"></canvas>
+                <div class="graph-buttons">
+                    <button onclick="showGraph('today')">Today</button>
+                    <button onclick="showGraph('week')">Week</button>
+                    <button onclick="showGraph('month')">Month</button>
+                    <button onclick="showGraph('sixMonth')">6 Month</button>
+                </div>
+            </div>
+        </div>
+        <div class="temperature-buttons">
+            <button class="download-data">Download Data &#x2193;</button>
+            <button class="test-now">Test Now</button>
+        </div>
+    </div>
+    <div class="chat-icon" onclick="window.location.href='chat.html'">
+        <img src="chatbot-icon.png" alt="Chatbot Icon">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // JavaScript to render the graph using Chart.js
+        const ctx = document.getElementById('temperatureChart').getContext('2d');
+        const temperatureChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+                datasets: [{
+                    label: 'Temperature Level (°C)',
+                    data: [25, 24.5, 26, 25.5, 24, 26, 25],
+                    borderColor: 'orange',
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function showGraph(period) {
+            // Placeholder function to handle changing graph data for different periods
+            alert('Showing graph for ' + period);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Interface</title>
+    <link rel="stylesheet" href="chatbot-styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .chatbot-fullpage-container {
+            width: 60%;
+            height: 80%;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header {
+            background-color: #00bcd4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8em;
+        }
+        .chat-body {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+        .bot-message, .user-message {
+            padding: 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            max-width: 70%;
+            word-wrap: break-word;
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+        .bot-message {
+            background-color: #e0e0e0;
+            color: #333;
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+            border-top-right-radius: 0;
+        }
+        .chat-footer {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #ddd;
+        }
+        #user-input {
+            flex-grow: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 1em;
+        }
+        #send-btn {
+            padding: 15px 20px;
+            background-color: #00bcd4;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #send-btn:hover {
+            background-color: #008c9e;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-fullpage-container">
+        <div class="chat-header">
+            Chat with Us
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">Hello! How can I assist you today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="Type your message here...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for chatbot functionality
+        const chatBody = document.getElementById('chat-body');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // Add user message and scroll chat body
+        sendBtn.addEventListener('click', () => {
+            const userMessage = userInput.value;
+            if (userMessage.trim() !== '') {
+                chatBody.innerHTML += `<div class="user-message">${userMessage}</div>`;
+                userInput.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        });
+
+        // Allow pressing Enter to send message
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
